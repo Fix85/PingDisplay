@@ -17,7 +17,6 @@ A Minecraft Fabric client-side mod that displays players' ping (latency) in the 
   - <span style="color:gold">**Yellow**</span>: `81 - 150 ms` (Moderate connection)
   - <span style="color:red">**Red**</span>: `150+ ms` (High latency)
 
-![Tab List Ping Screenshot](assets/screenshot.jpg)
 
 ### Requirements
 
@@ -41,7 +40,6 @@ A Minecraft Fabric client-side mod that displays players' ping (latency) in the 
   - <span style="color:gold">**Желтый**</span>: `81 - 150 ms` (Среднее соединение)
   - <span style="color:red">**Красный**</span>: `выше 150 ms` (Высокая задержка)
 
-![Скриншот списка Tab](assets/screenshot.jpg)
 
 ### Требования
 
