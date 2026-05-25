@@ -1,5 +1,0 @@
-{
-    "text.autoconfig.pingdisplay.title": "Настройки PingDisplay",
-    "text.autoconfig.pingdisplay.option.pingBeforeName": "Пинг перед ником",
-    "text.autoconfig.pingdisplay.option.pingBeforeName.@Tooltip": "Если включено, пинг будет отображаться перед никнеймом игрока (префикс), а не после него (суффикс)."
-}
