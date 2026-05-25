@@ -36,13 +36,13 @@ public class PlayerTabOverlayMixin {
             if (original != null) {
                 finalComponent.append(original);
             } else {
-                finalComponent.append(Component.literal(playerInfo.getProfile().getName()));
+                finalComponent.append(Component.literal(playerInfo.getProfile().name()));
             }
         } else {
             if (original != null) {
                 finalComponent.append(original);
             } else {
-                finalComponent.append(Component.literal(playerInfo.getProfile().getName()));
+                finalComponent.append(Component.literal(playerInfo.getProfile().name()));
             }
             finalComponent.append(pingComponent);
         }
