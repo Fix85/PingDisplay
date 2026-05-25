@@ -8,8 +8,9 @@
     "Fix85"
   ],
   "contact": {
-    "homepage": "https://github.com/Fix85",
-    "sources": "https://github.com/Fix85"
+    "homepage": "https://modrinth.com/mod/pingdisplay-fabric",
+    "sources": "https://github.com/Fix85/PingDisplay",
+    "issues": "https://github.com/Fix85/PingDisplay/issues"
   },
   "environment": "client",
   "icon": "assets/pingdisplay/icon.png",
