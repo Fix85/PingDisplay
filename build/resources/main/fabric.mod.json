@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "pingdisplay",
+  "version": "1.0.0",
+  "name": "PingDisplay",
+  "description": "Displays player ping in the Tab list and above players' heads.",
+  "authors": [
+    "Fix85"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Fix85",
+    "sources": "https://github.com/Fix85"
+  },
+  "environment": "client",
+  "icon": "assets/pingdisplay/icon.png",
+  "entrypoints": {
+    "client": [
+      "dev.fix85.pingdisplay.PingDisplay"
+    ],
+    "modmenu": [
+      "dev.fix85.pingdisplay.PingDisplayModMenu"
+    ]
+  },
+  "mixins": [
+    "pingdisplay.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.17.3",
+    "minecraft": "~1.21.4",
+    "java": ">=21"
+  }
+}
