@@ -43,13 +43,30 @@ jobs:
             !build/libs/*-dev.jar
           if-no-files-found: error
 
+      - name: Parse release version from tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        id: rel
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          # Expected format: v<modVersion>-mc<mcVersion>, e.g. v1.0.0-mc1.21.8
+          if [[ "$TAG" =~ ^v(.+)-mc(.+)$ ]]; then
+            MOD_VER="${BASH_REMATCH[1]}"
+            MC_VER="${BASH_REMATCH[2]}"
+          else
+            echo "Tag '$TAG' does not match expected format v<modVer>-mc<mcVer>" >&2
+            exit 1
+          fi
+          echo "mod_version=${MOD_VER}" >> "$GITHUB_OUTPUT"
+          echo "mc_version=${MC_VER}" >> "$GITHUB_OUTPUT"
+          echo "Tag: $TAG -> mod=$MOD_VER, mc=$MC_VER"
+
       - name: Publish GitHub Release
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          name: PingDisplay ${{ github.ref_name }}
+          name: PingDisplay v${{ steps.rel.outputs.mod_version }} for MC ${{ steps.rel.outputs.mc_version }}
           tag_name: ${{ github.ref_name }}
-          generate_release_notes: true
+          body: Initial release for Minecraft ${{ steps.rel.outputs.mc_version }}
           files: |
             build/libs/*.jar
             !build/libs/*-sources.jar
