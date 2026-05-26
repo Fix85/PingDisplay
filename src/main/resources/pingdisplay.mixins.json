@@ -2,6 +2,7 @@
   "required": true,
   "package": "dev.fix85.pingdisplay.mixin",
   "compatibilityLevel": "JAVA_17",
+  "refmap": "pingdisplay-refmap.json",
   "mixins": [
     "PlayerTabOverlayMixin",
     "EntityRendererMixin"
