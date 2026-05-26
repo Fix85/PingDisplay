@@ -20,10 +20,10 @@ A Minecraft Fabric client-side mod that displays players' ping (latency) in the 
 
 ### Requirements
 
-- Minecraft **1.21.4**
-- Fabric Loader `>= 0.17.3`
-- Fabric API (any build for 1.21.4)
-- Java `>= 21`
+- Minecraft **1.20.1**
+- Fabric Loader `>= 0.16.0`
+- Fabric API (any build for 1.20.1)
+- Java `>= 17`
 
 ---
 
@@ -43,7 +43,7 @@ A Minecraft Fabric client-side mod that displays players' ping (latency) in the 
 
 ### Требования
 
-- Minecraft **1.21.4**
-- Fabric Loader `>= 0.17.3`
-- Fabric API для 1.21.4
-- Java `>= 21`
+- Minecraft **1.20.1**
+- Fabric Loader `>= 0.16.0`
+- Fabric API для 1.20.1
+- Java `>= 17`

@@ -10,14 +10,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.ChatFormatting;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(EntityRenderer.class)
 public class EntityRendererMixin<T extends Entity> {
-    @Inject(method = "getNameTag", at = @At("RETURN"), cancellable = true)
-    private void modifyNameTag(T entity, CallbackInfoReturnable<Component> cir) {
-        Component displayName = cir.getReturnValue();
+    @ModifyVariable(method = "renderNameTag", at = @At("HEAD"), argsOnly = true, ordinal = 0)
+    private Component modifyNameTag(Component displayName, T entity) {
         if (displayName != null && entity instanceof Player player) {
             Minecraft client = Minecraft.getInstance();
             if (client.getConnection() != null) {
@@ -36,13 +34,15 @@ public class EntityRendererMixin<T extends Entity> {
                     
                     MutableComponent pingComponent = Component.literal(" [" + ping + "ms]").withStyle(color);
                     boolean before = dev.fix85.pingdisplay.PingConfig.get().pingBeforeName;
+                    
                     if (before) {
-                        cir.setReturnValue(Component.empty().append(pingComponent).append(" ").append(displayName));
+                        return Component.empty().append(pingComponent).append(" ").append(displayName);
                     } else {
-                        cir.setReturnValue(Component.empty().append(displayName).append(pingComponent));
+                        return Component.empty().append(displayName).append(pingComponent);
                     }
                 }
             }
         }
+        return displayName;
     }
 }
