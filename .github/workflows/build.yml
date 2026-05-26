@@ -36,7 +36,7 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: pingdisplay-${{ github.ref_name }}
+          name: pingdisplay-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.number) || github.ref_name }}
           path: |
             build/libs/*.jar
             !build/libs/*-sources.jar
